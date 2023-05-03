@@ -8,6 +8,8 @@ public class PlayerInputHandler : MonoBehaviour
     // Components
     private PlayerVehicleMovement playerVehicle;
 
+    public TimeManager timeManager;
+
     private void Awake()
     {
         playerVehicle = GetComponent<PlayerVehicleMovement>();
@@ -22,5 +24,10 @@ public class PlayerInputHandler : MonoBehaviour
         inputVector.y = Input.GetAxis("Vertical");
         
         playerVehicle.SetInputVector(inputVector);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            timeManager.SlowMotion();
+        }
     }
 }
