@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D _projectileRb;
     public float speed = 10f;
     public float timer = 5f;
+    public float damage = 5f;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class Projectile : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            col.gameObject.GetComponent<PlayerHealth>().DamagePlayer(damage);
             Debug.Log("You just got hit!");
             Destroy(gameObject);
         }

@@ -10345,12 +10345,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1517379307}
     - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: stagger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: oscillate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
       propertyPath: burstCount
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: angleSpread
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
       propertyPath: timeBetweenBursts
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: projectilesPerBurst
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3090070672881956390, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
       propertyPath: m_Name
@@ -21017,6 +21033,7 @@ GameObject:
   - component: {fileID: 1517379312}
   - component: {fileID: 1517379314}
   - component: {fileID: 1517379313}
+  - component: {fileID: 1517379315}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -21107,6 +21124,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeManager: {fileID: 296778213}
+--- !u!114 &1517379315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517379307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de829562ed877948b5a1aaafd0b3e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1541351421
 GameObject:
   m_ObjectHideFlags: 0
@@ -21546,8 +21576,16 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: angleSpread
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
       propertyPath: timeBetweenBursts
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: projectilesPerBurst
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3090070672881956390, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
       propertyPath: m_Name
@@ -21729,6 +21767,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1517379307}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: angleSpread
+      value: 359
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: timeBetweenBursts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090070672881956389, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
+      propertyPath: projectilesPerBurst
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3090070672881956390, guid: eac03588cf4ddc742b6cc9b4bcad8b97, type: 3}
       propertyPath: m_Name
       value: EnemyTurret
