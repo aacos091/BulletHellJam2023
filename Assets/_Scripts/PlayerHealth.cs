@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float health = 100.0f;
+    [SerializeField] private GameObject GameOverText;
 
     public float ReturnCurrentHealth()
     {
@@ -33,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("You're DEAD!");
+        GameOverText.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 
     private void Update()
