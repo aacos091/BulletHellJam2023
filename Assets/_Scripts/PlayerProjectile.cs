@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class PlayerProjectile : MonoBehaviour
 {
     private Rigidbody2D _projectileRb;
     public float speed = 10f;
@@ -34,9 +34,18 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.CompareTag("Player")) return;
-        col.gameObject.GetComponent<PlayerHealth>().DamagePlayer(damage);
-        Debug.Log("You just got hit!");
-        Destroy(gameObject);
+        if (col.CompareTag("Enemy"))
+        {
+            Debug.Log("You hit an enemy!");
+            col.gameObject.GetComponent<EnemyHealth>().DecreaseHealth();
+            Destroy(gameObject);
+        }
+
+        else if (col.CompareTag("Turret"))
+        {
+            Debug.Log("You hit a turret!");
+            col.gameObject.GetComponent<EnemyHealth>().DecreaseHealth();
+            Destroy(gameObject);
+        }
     }
 }

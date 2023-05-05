@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2397836555435482563}
   - component: {fileID: 2397836555435482572}
   - component: {fileID: 2397836555435482575}
-  - component: {fileID: 2397836555435482574}
+  - component: {fileID: 3009691046432419555}
   - component: {fileID: 2397836555435482573}
   m_Layer: 9
   m_Name: PlayerProjectile
@@ -103,7 +103,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0000038146973, y: -0.0000009536743}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &2397836555435482574
+--- !u!114 &3009691046432419555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,11 +112,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2397836555435482562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9828c284e4d6d7c4f9d7f7ed3a983889, type: 3}
+  m_Script: {fileID: 11500000, guid: f9651bbf49a4b0249996ebead036cadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
   timer: 5
+  damage: 5
 --- !u!50 &2397836555435482573
 Rigidbody2D:
   serializedVersion: 4

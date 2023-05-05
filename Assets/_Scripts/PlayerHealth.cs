@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float health = 100.0f;
     [SerializeField] private GameObject GameOverText;
+    [SerializeField] private TMP_Text healthText;
 
     public float ReturnCurrentHealth()
     {
@@ -33,13 +35,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("You're DEAD!");
+        //Debug.Log("You're DEAD!");
+        healthText.text = "0%";
         GameOverText.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        Debug.Log("Health = " + health);
+        //Debug.Log("Health = " + health);
+        healthText.text = health + "%";
     }
 }

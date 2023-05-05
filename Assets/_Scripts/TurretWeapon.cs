@@ -9,7 +9,7 @@ public class TurretWeapon : MonoBehaviour
     private float _nextFire;
     public int ammo = 50;
 
-    public Projectile projectile;
+    public PlayerProjectile projectile;
     public Transform gunBarrel;
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class TurretWeapon : MonoBehaviour
     {
         if (Time.time > _nextFire)
         {
-            print("BANG!");
+            //print("BANG!");
             var bullet = Instantiate(projectile, gunBarrel.position, gunBarrel.rotation);
             _nextFire = Time.time + fireRate;
             bullet = null;
