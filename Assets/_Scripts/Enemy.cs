@@ -1,36 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f;
-    public float fireRate = 0.3f;
-    public float health = 10;
-
-    public Vector2 pos
-    {
-        get
-        {
-            return this.transform.position;
-        }
-        set
-        {
-            this.transform.position = value;
-        }
-    }
+    public float moveSpeed = 10f;
+    public float turnSpeed = 1f;
+    public GameObject playerObject;
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-    }
+        Vector2 targetDirection = playerObject.transform.position - transform.position;
 
-    public virtual void Move()
-    {
-        Vector2 tempPos = pos;
-        tempPos.y -= speed * Time.deltaTime;
-        pos = tempPos;
+        float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+
+        //Vector2 newDirection = Vector3.RotateTowards(transform.up, targetDirection, singleStep, 0.0f);
+        
+        //transform.position =
+            Vector2.MoveTowards(transform.position, playerObject.transform.position, moveSpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, playerObject.transform.rotation, 0.0f);
     }
 }

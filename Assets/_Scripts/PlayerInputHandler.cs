@@ -6,13 +6,13 @@ using UnityEngine;
 public class PlayerInputHandler : MonoBehaviour
 {
     // Components
-    private PlayerVehicleMovement playerVehicle;
+    private PlayerVehicleMovement _vehicle;
 
     public TimeManager timeManager;
 
     private void Awake()
     {
-        playerVehicle = GetComponent<PlayerVehicleMovement>();
+        _vehicle = GetComponent<PlayerVehicleMovement>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.y = Input.GetAxis("Vertical");
         
-        playerVehicle.SetInputVector(inputVector);
+        _vehicle.SetInputVector(inputVector);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {

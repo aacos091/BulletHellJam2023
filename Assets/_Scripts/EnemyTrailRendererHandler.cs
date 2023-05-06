@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WheelTrailRendererHandler : MonoBehaviour
+public class EnemyTrailRendererHandler : MonoBehaviour
 {
     // Components
-    private PlayerVehicleMovement _vehicle;
+    private VehicleMovement _vehicle;
     private TrailRenderer _trailRenderer;
 
     private void Awake()
     {
         // Get the player vehicle controller
-        _vehicle = GetComponentInParent<PlayerVehicleMovement>();
+        _vehicle = GetComponentInParent<VehicleMovement>();
         
         // Get the trail renderer component
         _trailRenderer = GetComponent<TrailRenderer>();

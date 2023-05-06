@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WheelParticleHandler : MonoBehaviour
+public class EnemyParticleHandler : MonoBehaviour
 {
     // Local variables
     private float _particleEmissionRate = 0;
     
     // Components
-    private PlayerVehicleMovement _vehicle;
+    private VehicleMovement _vehicle;
 
     private ParticleSystem _particleSystemSmoke;
     private ParticleSystem.EmissionModule _particleSystemEmissionModule;
@@ -17,7 +17,7 @@ public class WheelParticleHandler : MonoBehaviour
     private void Awake()
     {
         // Get the car controller
-        _vehicle = GetComponentInParent<PlayerVehicleMovement>();
+        _vehicle = GetComponentInParent<VehicleMovement>();
         
         // Get the particle system
         _particleSystemSmoke = GetComponent<ParticleSystem>();
