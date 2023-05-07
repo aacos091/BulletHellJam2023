@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour
 
         inputVector.x = TurnTowardsTarget();
         inputVector.y = 1.0f;
+        //inputVector.y = ApplyThrottleOrBrake(inputVector.x);
         
         _vehicle.SetInputVector(inputVector);
     }
@@ -66,5 +67,11 @@ public class EnemyAI : MonoBehaviour
         steerAmount = Mathf.Clamp(steerAmount, -1.0f, 1.0f);
 
         return steerAmount;
+    }
+
+    float ApplyThrottleOrBrake(float inputX)
+    {
+        // Apply throttle forward based upon how much the car wants to turn. If it's a sharp turn, this will cause the car to apply less speed forward.
+        return 1.05f - Mathf.Abs(inputX) / 1.0f;
     }
 }

@@ -119,4 +119,9 @@ public class PlayerVehicleMovement : MonoBehaviour
         _accelerationInput = inputVector.y;
         _steeringInput = inputVector.x;
     }
+
+    public float GetVelocityMagnitude()
+    {
+        return _carRb2D.velocity.magnitude;
+    }
 }
