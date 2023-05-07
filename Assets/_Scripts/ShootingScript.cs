@@ -16,17 +16,14 @@ public class ShootingScript : MonoBehaviour
     [SerializeField] private float restTime = 1f;
     [SerializeField] private bool stagger;
     [SerializeField] private bool oscillate;
+    [SerializeField] private float radius = 5f;
+    [SerializeField] private LayerMask playerMask;
 
     private bool isShooting = false;
 
     private void Awake()
     {
         player = GameObject.Find("Player");
-    }
-
-    public void Attack()
-    {
-        
     }
 
     private IEnumerator ShootRoutine()
@@ -118,15 +115,25 @@ public class ShootingScript : MonoBehaviour
 
         return pos;
     }
-     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
+    {
+        if (Physics2D.OverlapCircle(transform.position, radius, playerMask))
+        {
+            Debug.Log("Player has entered the radius.");
+            InvokeRepeating("Attack", 0f, restTime);
+        }
+        else
+        {
+            Debug.Log("Player has left the radius.");
+            CancelInvoke();
+        }
+
+        
+    }
+
+    void Attack()
     {
         if (!isShooting)
         {

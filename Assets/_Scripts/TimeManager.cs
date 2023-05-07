@@ -3,18 +3,20 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class TimeManager : MonoBehaviour
 {
     public float slowdownFactor = 0.05f;
     public float slowdownLength = 2f;
-    public AudioSource music;
+    //public AudioSource music;
     public float slowMoPercentage = 100.0f;
     public float regenRate;
     public float decreaseRate;
     public TMP_Text slowMoText;
     private bool regenSlowMo = false;
     public bool usingSloMo = false;
+    public AudioMixer mainMixer;
     
 
     private void Update()
@@ -22,7 +24,7 @@ public class TimeManager : MonoBehaviour
         slowMoText.text = Mathf.FloorToInt(slowMoPercentage) + "%";
         Time.timeScale += (1f / slowdownLength) * Time.unscaledDeltaTime;
         Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
-        music.pitch = Time.timeScale;
+        mainMixer.SetFloat("MasterPitch", Time.timeScale);
 
         if (slowMoPercentage < 100.0f && !regenSlowMo && !usingSloMo)
         {
@@ -43,7 +45,7 @@ public class TimeManager : MonoBehaviour
             
             Time.timeScale = slowdownFactor;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
-            music.pitch = 0.6f;
+            mainMixer.SetFloat("MasterPitch", 0.6f);
 
             slowMoPercentage -= decreaseRate * Time.deltaTime;
         }

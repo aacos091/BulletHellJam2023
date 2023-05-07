@@ -136,6 +136,10 @@ MonoBehaviour:
   restTime: 2
   stagger: 0
   oscillate: 0
+  radius: 7
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &900221227669795643
 MonoBehaviour:
   m_ObjectHideFlags: 0

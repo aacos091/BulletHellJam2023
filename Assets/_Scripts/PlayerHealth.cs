@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float health = 100.0f;
     [SerializeField] private GameObject GameOverText;
     [SerializeField] private TMP_Text healthText;
+    public GameObject wheelTrailLeft;
+    public GameObject wheelTrailRight;
 
     public float ReturnCurrentHealth()
     {
@@ -37,6 +39,8 @@ public class PlayerHealth : MonoBehaviour
     {
         //Debug.Log("You're DEAD!");
         healthText.text = "0%";
+        wheelTrailLeft.transform.SetParent(null);
+        wheelTrailRight.transform.SetParent(null);
         GameOverText.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
     }

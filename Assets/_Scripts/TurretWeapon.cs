@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TurretWeapon : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TurretWeapon : MonoBehaviour
 
     public PlayerProjectile projectile;
     public Transform gunBarrel;
+    public TMP_Text ammoNum;
 
     // Start is called before the first frame update
     void Start()
@@ -27,16 +29,23 @@ public class TurretWeapon : MonoBehaviour
         {
             FireWeapon();
         }
+
+        ammoNum.text = ammo.ToString();
     }
 
     void FireWeapon()
     {
-        if (Time.time > _nextFire)
+        if (Time.time > _nextFire && ammo > 0)
         {
             //print("BANG!");
             var bullet = Instantiate(projectile, gunBarrel.position, gunBarrel.rotation);
             _nextFire = Time.time + fireRate;
+            ammo--;
             bullet = null;
+        }
+        else if (ammo <= 0)
+        {
+            Debug.Log("You're out of ammo!");
         }
     }
 
