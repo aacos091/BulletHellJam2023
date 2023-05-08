@@ -10,11 +10,15 @@ public class Projectile : MonoBehaviour
     public float speed = 10f;
     public float timer = 5f;
     public float damage = 5f;
+    public AudioSource hitSound;
+    public AudioClip hit;
+    public SpriteRenderer sprite;
+    public Collider2D collider;
 
     private void Awake()
     {
         _projectileRb = GetComponent<Rigidbody2D>();
-        
+        hitSound = GetComponentInChildren<AudioSource>();
     }
 
     private void Start()
@@ -35,8 +39,11 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Player")) return;
+        sprite.enabled = false;
+        collider.enabled = false;
+        hitSound.PlayOneShot(hit);
         col.gameObject.GetComponent<PlayerHealth>().DamagePlayer(damage);
         Debug.Log("You just got hit!");
-        Destroy(gameObject);
+        Destroy(gameObject, 1.0f);
     }
 }

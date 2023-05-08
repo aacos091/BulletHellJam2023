@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShootingScript : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ShootingScript : MonoBehaviour
     [SerializeField] private bool oscillate;
     [SerializeField] private float radius = 5f;
     [SerializeField] private LayerMask playerMask;
+    [SerializeField] private GameObject sprite;
+    [SerializeField] private AudioSource audio;
 
     private bool isShooting = false;
 
@@ -66,6 +69,8 @@ public class ShootingScript : MonoBehaviour
 
                 GameObject newBullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
                 newBullet.transform.up = newBullet.transform.position - transform.position;
+                
+                audio.Play();
 
                 if (newBullet.TryGetComponent(out Projectile projectile))
                 {
@@ -130,7 +135,7 @@ public class ShootingScript : MonoBehaviour
             CancelInvoke();
         }
 
-        
+        RotateTowardPlayer();
     }
 
     void Attack()
@@ -139,5 +144,19 @@ public class ShootingScript : MonoBehaviour
         {
             StartCoroutine(ShootRoutine());
         }
+    }
+
+    void RotateTowardPlayer()
+    {
+        float offset = 90f;
+        
+        float angle = AngleBetweenTwoPoints(sprite.transform.position, player.transform.position);
+        
+        sprite.transform.rotation = Quaternion.Euler(0f, 0f, angle + offset);
+    }
+    
+    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 }

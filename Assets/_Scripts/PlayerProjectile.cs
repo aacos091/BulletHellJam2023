@@ -10,11 +10,15 @@ public class PlayerProjectile : MonoBehaviour
     public float speed = 10f;
     public float timer = 5f;
     public float damage = 5f;
+    public AudioSource hitSound;
+    public AudioClip hit;
+    public SpriteRenderer sprite;
+    public Collider2D collider;
 
     private void Awake()
     {
         _projectileRb = GetComponent<Rigidbody2D>();
-        
+        hitSound = GetComponentInChildren<AudioSource>();
     }
 
     private void Start()
@@ -37,15 +41,21 @@ public class PlayerProjectile : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             Debug.Log("You hit an enemy!");
+            sprite.enabled = false;
+            collider.enabled = false;
+            hitSound.PlayOneShot(hit);
             col.gameObject.GetComponent<EnemyHealth>().DecreaseHealth();
-            Destroy(gameObject);
+            Destroy(gameObject, 1.0f);
         }
 
         else if (col.CompareTag("Turret"))
         {
             Debug.Log("You hit a turret!");
+            sprite.enabled = false;
+            collider.enabled = false;
+            hitSound.PlayOneShot(hit);
             col.gameObject.GetComponent<EnemyHealth>().DecreaseHealth();
-            Destroy(gameObject);
+            Destroy(gameObject, 1.0f);
         }
     }
 }

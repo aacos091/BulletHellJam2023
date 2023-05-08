@@ -89,6 +89,8 @@ public class VehicleMovement : MonoBehaviour
 
     float GetLateralVelocity()
     {
+        if (_carRb2D == null) return 0.0f;
+        
         // Returns how fast the car is moving sideways
         return Vector2.Dot(transform.right, _carRb2D.velocity);
     }

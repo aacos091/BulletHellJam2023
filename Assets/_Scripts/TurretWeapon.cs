@@ -13,6 +13,7 @@ public class TurretWeapon : MonoBehaviour
     public PlayerProjectile projectile;
     public Transform gunBarrel;
     public TMP_Text ammoNum;
+    public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class TurretWeapon : MonoBehaviour
         {
             //print("BANG!");
             var bullet = Instantiate(projectile, gunBarrel.position, gunBarrel.rotation);
+            audio.Play();
             _nextFire = Time.time + fireRate;
             ammo--;
             bullet = null;
