@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline;
+//using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,8 +19,7 @@ public class Enemy : MonoBehaviour
 
         //Vector2 newDirection = Vector3.RotateTowards(transform.up, targetDirection, singleStep, 0.0f);
         
-        //transform.position =
-            Vector2.MoveTowards(transform.position, playerObject.transform.position, moveSpeed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, moveSpeed * Time.deltaTime);
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, playerObject.transform.rotation, 0.0f);
     }

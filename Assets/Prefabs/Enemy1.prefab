@@ -5147,7 +5147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42069ccb696e4fc40b3bd243d801d3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 3
+  enemyHealth: 6
   wheelTrailLeft: {fileID: 8578120873423102665}
   wheelTrailRight: {fileID: 8578120874116796516}
   audio: {fileID: 138223881}

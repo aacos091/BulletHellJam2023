@@ -214,7 +214,7 @@ MonoBehaviour:
   restTime: 2
   stagger: 0
   oscillate: 0
-  radius: 7
+  radius: 12
   playerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42069ccb696e4fc40b3bd243d801d3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 1
+  enemyHealth: 3
   wheelTrailLeft: {fileID: 0}
   wheelTrailRight: {fileID: 0}
   audio: {fileID: 547588682272305748}

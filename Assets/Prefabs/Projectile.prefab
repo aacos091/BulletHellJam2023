@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   timer: 5
-  damage: 5
+  damage: 4
   hitSound: {fileID: 827092438604724824}
   hit: {fileID: 8300000, guid: ea217009756235142af45965eb1a6d31, type: 3}
   sprite: {fileID: 2397836555435482572}

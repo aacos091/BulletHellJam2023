@@ -11,6 +11,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private TMP_Text healthText;
     public GameObject wheelTrailLeft;
     public GameObject wheelTrailRight;
+    public GameManager manager;
+
+    private void Awake()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     public float ReturnCurrentHealth()
     {
@@ -39,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Debug.Log("You're DEAD!");
         healthText.text = "0%";
+        manager.playerDead = true;
         wheelTrailLeft.transform.SetParent(null);
         wheelTrailRight.transform.SetParent(null);
         GameOverText.gameObject.SetActive(true);
